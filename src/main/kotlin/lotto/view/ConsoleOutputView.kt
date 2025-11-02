@@ -1,4 +1,26 @@
 package lotto.view
 
-class ConsoleOutputView {
+import lotto.util.OutputMessages
+
+class ConsoleOutputView: OutputView {
+    override fun printPurchasePayment() {
+        println(OutputMessages.PROMPT_PURCHASE_PAYMENT)
+    }
+
+    override fun printWinningNumber() {
+        println(OutputMessages.PROMPT_WINNING_NUMBER)
+    }
+
+    override fun printBonusNumber() {
+        println(OutputMessages.PROMPT_BONUS_NUMBER)
+    }
+
+    override fun printPurchasedNumber() {
+        println(OutputMessages.PROMPT_PURCHASE_AMOUNT)
+    }
+
+    override fun printLottoResult() {
+        println(OutputMessages.PROMPT_LOTTO_RESULT)
+
+    }
 }

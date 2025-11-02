@@ -1,4 +1,9 @@
 package lotto.view
 
-class OutputView {
+interface OutputView {
+    fun printPurchasePayment() {}
+    fun printWinningNumber() {}
+    fun printBonusNumber() {}
+    fun printPurchasedNumber() {}
+    fun printLottoResult() {}
 }
