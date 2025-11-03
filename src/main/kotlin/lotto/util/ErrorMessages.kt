@@ -2,6 +2,7 @@ package lotto.util
 
 object ErrorMessages {
     const val PAYMENT_BLANK = "[ERROR] 구입 금액이 입력되지 않았습니다."
+    const val PAYMENT_FORMAT_INVALID = "[ERROR] 구입 금액이 잘못 작성되어 있습니다."
     const val PAYMENT_LESS_THAN_1000 = "[ERROR] 구입 금액이 1000원보다 낮습니다."
     const val WINNING_NUMBER_BLANK = "[ERROR] 당첨 번호가 입력되지 않았습니다."
     const val WINNING_NUMBER_COUNT_ERROR = "[ERROR] 당첨 번호가 6개가 아닙니다."
