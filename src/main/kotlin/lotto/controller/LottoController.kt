@@ -1,8 +1,11 @@
 package lotto.controller
 
+import lotto.model.Lotto
 import lotto.view.InputView
 import lotto.view.OutputView
 import lotto.util.Validator
+import lotto.model.LottoMachine
+import lotto.util.LottoConfig
 
 class LottoController(
     private val input: InputView,
@@ -10,13 +13,15 @@ class LottoController(
 ) {
     public fun run() {
         val (gameCnt, winningNumber, bonusNumber) = collectUserInput()
-
+        val myLottos : List<Lotto> = LottoMachine.createLottos(gameCnt)
+        myLottos.forEach { myLotto ->}
     }
-    private fun collectUserInput(): Triple<Int, List<Int>, Int> {
+    private fun collectUserInput(): Triple<Int, Lotto, Int> {
         val payment = readValidPayment()
-        val gameCnt = payment/ Validator.LottoPrice
-        val winningNumber = readValidWinningNumber()
+        val gameCnt = payment/ LottoConfig.LottoPrice
+        val winningNumber: Lotto = readValidWinningNumber()
         val bonusNumber = readValidBonusNumber(winningNumber)
+        output.printPurchasedNumber(gameCnt)
         return Triple(gameCnt, winningNumber, bonusNumber)
     }
 
@@ -32,7 +37,7 @@ class LottoController(
         }
     }
 
-    private fun readValidWinningNumber(): List<Int> {
+    private fun readValidWinningNumber(): Lotto {
         while(true) {
             try{
                 output.printWinningNumber()
@@ -44,7 +49,7 @@ class LottoController(
         }
     }
 
-    private fun readValidBonusNumber(winningNumber: List<Int>): Int {
+    private fun readValidBonusNumber(winningNumber: Lotto): Int {
         while(true) {
             try{
                 output.printBonusNumber()
