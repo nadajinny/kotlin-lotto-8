@@ -7,4 +7,5 @@ interface OutputView {
     fun printPurchasedNumber(gameCnt: Int) {}
     fun printLottoNumbers(numbers: String) {}
     fun printLottoResult() {}
+    fun printProfitRate(profitRate: Double) {}
 }
