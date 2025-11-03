@@ -20,11 +20,16 @@ class ConsoleOutputView: OutputView {
     }
 
     override fun printLottoNumbers(numbers: String) {
-        super.printLottoNumbers(numbers)
+        println(numbers)
     }
 
     override fun printLottoResult() {
         println(OutputMessages.PROMPT_LOTTO_RESULT)
 
     }
+
+    override fun printProfitRate(profitRate: Double) {
+        println("총 수익률은 %.1f%%입니다.".format(profitRate))
+    }
+
 }
