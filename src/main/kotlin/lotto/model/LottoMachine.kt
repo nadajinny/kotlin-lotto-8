@@ -8,7 +8,7 @@ import lotto.view.ConsoleOutputView
 object LottoMachine {
     fun createLottos(cnt: Int): List<Lotto> {
         val Lottos = (1..cnt).map {
-            Lotto(Randoms.pickUniqueNumbersInRange(LottoConfig.startNum, LottoConfig.endNum, LottoConfig.LOTTO_SIZE))
+            Lotto(Randoms.pickUniqueNumbersInRange(LottoConfig.startNum, LottoConfig.endNum, LottoConfig.LOTTO_SIZE).sorted())
         }
         val output = ConsoleOutputView()
         Lottos.forEach{ myLotto ->
