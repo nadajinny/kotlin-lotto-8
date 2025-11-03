@@ -11,7 +11,8 @@ object LottoMachine {
             Lotto(Randoms.pickUniqueNumbersInRange(LottoConfig.startNum, LottoConfig.endNum, LottoConfig.LOTTO_SIZE))
         }
         val output = ConsoleOutputView()
-        Lottos.forEach{ myLotto -> output.printLottoNumbers(myLotto.getNumbers().joinToString(",", "[", "]")) }
+        Lottos.forEach{ myLotto ->
+            output.printLottoNumbers(myLotto.getNumbers()) }
         return Lottos
     }
 }
