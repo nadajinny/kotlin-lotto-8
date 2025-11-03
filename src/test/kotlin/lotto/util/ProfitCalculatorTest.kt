@@ -13,7 +13,6 @@ class ProfitCalculatorTest {
     @Test
     @DisplayName("등수 리스트를 받아 각 Rank별 개수를 올바르게 계산한다")
     fun `rankCount는 각 등수 개수를 반환한다`() {
-        // given
         val ranks = listOf(
             Rank.First,
             Rank.Fifth,
@@ -54,18 +53,13 @@ class ProfitCalculatorTest {
     @Test
     @DisplayName("수익률을 올바르게 계산한다")
     fun `rate는 총 상금과 투자 금액을 기반으로 수익률을 계산한다`() {
-        // given
         val ranks = listOf(
             Rank.Fourth, // 50,000
             Rank.Fifth,  // 5,000
             Rank.None    // 0
         )
-        val gameCnt = 3 // 3장 구매 → 3,000원 투자
-
-        // when
+        val gameCnt = 3
         val rate = calculator.rate(ranks, gameCnt)
-
-        // then
         // (50,000 + 5,000) / 3,000 * 100 = 1833.33...
         assertThat(rate).isCloseTo(1833.33, within(0.01))
     }
@@ -73,14 +67,10 @@ class ProfitCalculatorTest {
     @Test
     @DisplayName("모든 Rank가 NONE일 경우 수익률은 0%이다")
     fun `모든 로또가 꽝이면 수익률 0`() {
-        // given
         val ranks = List(5) { Rank.None } // 5장 전부 꽝
         val gameCnt = 5
-
-        // when
         val rate = calculator.rate(ranks, gameCnt)
 
-        // then
         assertThat(rate).isEqualTo(0.0)
     }
 }

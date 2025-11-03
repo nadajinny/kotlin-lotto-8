@@ -14,7 +14,6 @@ class LottoControllerTest : NsTest() {
     fun `LottoController 정상 동작 테스트`() {
         assertRandomUniqueNumbersInRangeTest(
             {
-                // 입력 순서: 구입 금액 → 당첨 번호 → 보너스 번호
                 run("8000", "1,2,3,4,5,6", "7")
 
                 assertThat(output()).contains(
@@ -45,7 +44,7 @@ class LottoControllerTest : NsTest() {
     @Test
     fun `로또 구입 금액이 숫자가 아니면 예외 발생`() {
         assertSimpleTest {
-            runException("1ooo0", "1,2,3,4,5,6", "7") // 'o' 포함
+            runException("1ooo0", "1,2,3,4,5,6", "7")
             assertThat(output()).contains(ERROR_MESSAGE)
         }
     }
@@ -67,7 +66,6 @@ class LottoControllerTest : NsTest() {
     }
 
     override fun runMain() {
-        // LottoController를 직접 실행하도록 main 대신 아래 코드를 수행
         val input = ConsoleInputView()
         val output = ConsoleOutputView()
         val controller = LottoController(input, output)
