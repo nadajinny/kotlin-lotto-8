@@ -4,6 +4,7 @@ interface OutputView {
     fun printPurchasePayment() {}
     fun printWinningNumber() {}
     fun printBonusNumber() {}
-    fun printPurchasedNumber() {}
+    fun printPurchasedNumber(gameCnt: Int) {}
+    fun printLottoNumbers(numbers: String) {}
     fun printLottoResult() {}
 }

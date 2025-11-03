@@ -15,8 +15,12 @@ class ConsoleOutputView: OutputView {
         println(OutputMessages.PROMPT_BONUS_NUMBER)
     }
 
-    override fun printPurchasedNumber() {
-        println(OutputMessages.PROMPT_PURCHASE_AMOUNT)
+    override fun printPurchasedNumber(gameCnt: Int) {
+        println("${gameCnt}${OutputMessages.PROMPT_PURCHASE_AMOUNT}")
+    }
+
+    override fun printLottoNumbers(numbers: String) {
+        super.printLottoNumbers(numbers)
     }
 
     override fun printLottoResult() {
